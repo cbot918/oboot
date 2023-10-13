@@ -1,0 +1,28 @@
+version: '3'
+
+services: 
+
+  redis: 
+    image: redis:latest
+    container_name: test_redis
+    restart: always
+    ports: 
+      - 6377:6379
+
+  rabbitmq: 
+    image: rabbitmq:3-management
+    container_name: test_rabbitmq
+    restart: always
+    ports: 
+      - 5672:5672
+      - 5673:15672
+    environment: 
+      - RABBITMQ_DEFAULT_USER=yale918
+      - RABBITMQ_DEFAULT_PASS=12345
+
+  nginx: 
+    image: nginx:latest
+    container_name: test_nginx
+    restart: always
+    ports: 
+      - 80:80

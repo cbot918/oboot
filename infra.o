@@ -1,0 +1,2 @@
+network: bridge
+service: [redis, rabbitmq, nginx]
